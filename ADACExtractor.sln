@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADACExtractor", "ADACExtractor\ADACExtractor.csproj", "{B5F015FF-87F7-4C7B-BDFA-DB0773402EE8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADACExtractor CLI", "ADACExtractor CLI\ADACExtractor CLI.csproj", "{4701ED79-1AC2-4424-AD1D-93B62982D110}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B5F015FF-87F7-4C7B-BDFA-DB0773402EE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5F015FF-87F7-4C7B-BDFA-DB0773402EE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5F015FF-87F7-4C7B-BDFA-DB0773402EE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4701ED79-1AC2-4424-AD1D-93B62982D110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4701ED79-1AC2-4424-AD1D-93B62982D110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4701ED79-1AC2-4424-AD1D-93B62982D110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4701ED79-1AC2-4424-AD1D-93B62982D110}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
