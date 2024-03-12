@@ -42,5 +42,4 @@ jobs:
         automatic_release_tag: "devbuild"
         prerelease: true
         title: "Development Build"
-        files: |
-          "/home/runner/work/ADACL/ADACL/release/"
+        files: "/home/runner/work/ADACL/ADACL/release/"
