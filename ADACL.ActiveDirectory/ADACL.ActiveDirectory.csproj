@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ADACExtractor.Abstractions\ADACL.Abstractions.csproj" />
+    <ProjectReference Include="..\ADACL.Abstractions\ADACL.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>

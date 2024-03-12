@@ -19,7 +19,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\ADACExtractor.ActiveDirectory\ADACL.ActiveDirectory.csproj" />
+	  <ProjectReference Include="..\ADACL.ActiveDirectory\ADACL.ActiveDirectory.csproj" />
 	</ItemGroup>
 
 </Project>
