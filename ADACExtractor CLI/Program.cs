@@ -1,17 +1,33 @@
-﻿using Cocona;
+﻿using ADACExtractor.CLI.Commands;
+using Cocona;
+using Microsoft.Extensions.Logging;
+
+#if DEBUG
+if (args.Length == 0)
+{
+    args = new string[]
+    {
+        "active-directory",
+        "inspect"
+    };
+}
+#endif
 
 var builder = CoconaApp.CreateBuilder(args, c =>
 {
     c.TreatPublicMethodsAsCommands = false;
 });
 
+builder.Logging.AddDebug();
+
 var app = builder.Build();
 
-app.AddCommand(() =>
+app.AddSubCommand("active-directory", config =>
 {
-    Console.WriteLine("Hello, world!");
+    config.AddCommands<ActiveDirectoryCommands>();
 });
 
+app.AddCommands<SystemInformationCommands>();
 app.AddCommands<MyCommands>();
 
 app.Run();
