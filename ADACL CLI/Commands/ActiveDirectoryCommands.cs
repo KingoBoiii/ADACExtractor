@@ -1,8 +1,9 @@
-﻿using Cocona;
+﻿using ADACL;
+using Cocona;
 using Microsoft.Extensions.Logging;
 using System.Runtime.Versioning;
 
-namespace ADACExtractor.CLI.Commands;
+namespace ADACL.CLI.Commands;
 
 [SupportedOSPlatform("windows")]
 [HasSubCommands(typeof(ActiveDirectoryShowCommands), "show")]

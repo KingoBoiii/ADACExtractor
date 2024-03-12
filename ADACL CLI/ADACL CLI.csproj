@@ -5,11 +5,11 @@
 		<TargetFramework>net8.0-windows</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<RootNamespace>ADACExtractor.CLI</RootNamespace>
+		<RootNamespace>ADACL.CLI</RootNamespace>
 		<PublishSingleFile>true</PublishSingleFile>
 		<SelfContained>true</SelfContained>
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
-		<AssemblyName>ADACExtractor</AssemblyName>
+		<AssemblyName>ADACL</AssemblyName>
 	</PropertyGroup>
 
 	<ItemGroup>

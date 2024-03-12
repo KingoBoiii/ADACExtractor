@@ -1,8 +1,8 @@
-﻿using ADACExtractor.ActiveDirectory.Models.Mappers;
-using ADACExtractor.Models;
+﻿using ADACL.ActiveDirectory.Models.Mappers;
+using ADACL.Models;
 using System.Runtime.Versioning;
 
-namespace ADACExtractor.ActiveDirectory;
+namespace ADACL.ActiveDirectory;
 
 [SupportedOSPlatform("windows")]
 public class WindowsDomainService : IDomainService
@@ -16,7 +16,7 @@ public class WindowsDomainService : IDomainService
 
     public async ValueTask<Domain?> GetComputerDomainAsync()
     {
-        if(TryGetComputerDomain(out var computerDomain, out var errorMessage))
+        if (TryGetComputerDomain(out var computerDomain, out var errorMessage))
         {
             return await DomainMapper.MapAsync(computerDomain).ConfigureAwait(false);
         }

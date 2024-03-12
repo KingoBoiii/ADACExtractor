@@ -1,9 +1,9 @@
-﻿using ADACExtractor.ActiveDirectory.Models.Mappers;
-using ADACExtractor.Models;
+﻿using ADACL.ActiveDirectory.Models.Mappers;
+using ADACL.Models;
 using Microsoft.Extensions.Logging;
 using System.Runtime.Versioning;
 
-namespace ADACExtractor.ActiveDirectory;
+namespace ADACL.ActiveDirectory;
 
 [SupportedOSPlatform("windows")]
 public class WindowsDomainControllerService(ILogger<WindowsDomainControllerService> logger, IDomainControllerMapper domainControllerMapper) : IDomainControllerService

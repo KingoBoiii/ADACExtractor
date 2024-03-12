@@ -1,9 +1,10 @@
-﻿using Cocona;
+﻿using ADACL;
+using Cocona;
 using Microsoft.Extensions.Logging;
 using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
 
-namespace ADACExtractor.CLI.Commands;
+namespace ADACL.CLI.Commands;
 
 public class ActiveDirectoryShowCommands(ILogger<ActiveDirectoryShowCommands> logger, IDomainService domainService) : CommandBase<ActiveDirectoryShowCommands>(logger)
 {
@@ -87,10 +88,10 @@ public class ActiveDirectoryShowCommands(ILogger<ActiveDirectoryShowCommands> lo
     Description:        {}
     Member Count:       {}
     Is Security Group:  {}
-    Group Scope:        {}", 
+    Group Scope:        {}",
                 groupPrincipal.Name, groupPrincipal.Guid, groupPrincipal.Guid, groupPrincipal.Name, groupPrincipal.DisplayName, groupPrincipal.SamAccountName,
                 groupPrincipal.UserPrincipalName, groupPrincipal.Description, groupPrincipal.Members.Count, groupPrincipal.IsSecurityGroup, groupPrincipal.GroupScope.ToString());
-            
+
         }
     }
 

@@ -1,7 +1,7 @@
-﻿using ADACExtractor.Models;
+﻿using ADACL.Models;
 using System.Runtime.Versioning;
 
-namespace ADACExtractor.ActiveDirectory.Models.Mappers;
+namespace ADACL.ActiveDirectory.Models.Mappers;
 
 public interface IDomainControllerMapper
 {

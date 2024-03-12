@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace ADACExtractor.CLI.Commands;
+namespace ADACL.CLI.Commands;
 
 public abstract class CommandBase<TCommand>(ILogger<TCommand> logger)
 {

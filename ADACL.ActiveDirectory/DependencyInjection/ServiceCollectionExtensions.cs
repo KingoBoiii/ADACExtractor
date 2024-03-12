@@ -1,9 +1,9 @@
-﻿using ADACExtractor.ActiveDirectory;
-using ADACExtractor.ActiveDirectory.Models.Mappers;
+﻿using ADACL.ActiveDirectory;
+using ADACL.ActiveDirectory.Models.Mappers;
 using Microsoft.Extensions.DependencyInjection;
 using System.Runtime.Versioning;
 
-namespace ADACExtractor.Extensions.DependencyInjection;
+namespace ADACL.Extensions.DependencyInjection;
 
 [SupportedOSPlatform("windows")]
 public static class ServiceCollectionExtensions

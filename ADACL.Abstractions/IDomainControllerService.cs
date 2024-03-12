@@ -1,6 +1,6 @@
-﻿using ADACExtractor.Models;
+﻿using ADACL.Models;
 
-namespace ADACExtractor;
+namespace ADACL;
 
 
 public interface IDomainControllerService

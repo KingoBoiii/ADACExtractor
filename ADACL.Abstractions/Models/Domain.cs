@@ -1,4 +1,4 @@
-﻿namespace ADACExtractor.Models;
+﻿namespace ADACL.Models;
 
 public class Domain
 {

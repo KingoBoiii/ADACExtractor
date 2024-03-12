@@ -1,7 +1,7 @@
 ﻿using Cocona;
 using Microsoft.Extensions.Logging;
 
-namespace ADACExtractor.CLI.Commands;
+namespace ADACL.CLI.Commands;
 
 public class SystemInformationCommands(ILogger<SystemInformationCommands> logger) : CommandBase<SystemInformationCommands>(logger)
 {
