@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADACL CLI", "ADACExtractor CLI\ADACL CLI.csproj", "{4701ED79-1AC2-4424-AD1D-93B62982D110}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADACL CLI", "ADACL CLI\ADACL CLI.csproj", "{4701ED79-1AC2-4424-AD1D-93B62982D110}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADACL.Abstractions", "ADACExtractor.Abstractions\ADACL.Abstractions.csproj", "{1D7CC90F-2D31-49DC-8A1B-103C89964141}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADACL.Abstractions", "ADACL.Abstractions\ADACL.Abstractions.csproj", "{1D7CC90F-2D31-49DC-8A1B-103C89964141}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADACL.ActiveDirectory", "ADACExtractor.ActiveDirectory\ADACL.ActiveDirectory.csproj", "{F2A7C57D-75C0-4CFF-8B9C-4446E10C4AC7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADACL.ActiveDirectory", "ADACL.ActiveDirectory\ADACL.ActiveDirectory.csproj", "{F2A7C57D-75C0-4CFF-8B9C-4446E10C4AC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
