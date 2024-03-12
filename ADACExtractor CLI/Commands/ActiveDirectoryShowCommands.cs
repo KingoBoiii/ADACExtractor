@@ -7,8 +7,49 @@ namespace ADACExtractor.CLI.Commands;
 
 public class ActiveDirectoryShowCommands(ILogger<ActiveDirectoryShowCommands> logger) : ActiveDirectoryCommandBase<ActiveDirectoryShowCommands>(logger)
 {
+    [Command("users")]
+    public async ValueTask ShowUsersAsync()
+    {
+        if (!TryGetComputerDomain(out var computerDomain, out var errorMessage))
+        {
+            Logger.LogError("No domain found: {}", errorMessage);
+
+            return;
+        }
+
+        using var principalContext = new PrincipalContext(ContextType.Domain, computerDomain.Name);
+
+        using var userSearcher = new PrincipalSearcher(new UserPrincipal(principalContext));
+
+        foreach (var result in userSearcher.FindAll())
+        {
+            var directoryEntry = (result?.GetUnderlyingObject() ?? default) as DirectoryEntry;
+            if (directoryEntry is null)
+            {
+                continue;
+            }
+
+            var userPrincipal = await GetUserPrincipalAsync(principalContext, directoryEntry).ConfigureAwait(false);
+            if (userPrincipal is null)
+            {
+                continue;
+            }
+
+            Logger.LogInformation(@"Group found '{} ({})'
+    Guid:               {}
+    Name:               {}
+    Display Name:       {}
+    SAM Account Name:   {}
+    User Principal Name:{}
+    Description:        {}",
+                userPrincipal.Name, userPrincipal.Guid, userPrincipal.Guid, userPrincipal.Name, userPrincipal.DisplayName, userPrincipal.SamAccountName,
+                userPrincipal.UserPrincipalName, userPrincipal.Description);
+
+        }
+    }
+
     [Command("groups")]
-    public async ValueTask InspectGroupsAsync()
+    public async ValueTask ShowGroupsAsync()
     {
         if (!TryGetComputerDomain(out var computerDomain, out var errorMessage))
         {
@@ -49,6 +90,19 @@ public class ActiveDirectoryShowCommands(ILogger<ActiveDirectoryShowCommands> lo
                 groupPrincipal.UserPrincipalName, groupPrincipal.Description, groupPrincipal.Members.Count, groupPrincipal.IsSecurityGroup, groupPrincipal.GroupScope.ToString());
             
         }
+    }
+
+    private ValueTask<UserPrincipal?> GetUserPrincipalAsync(PrincipalContext principalContext, DirectoryEntry directoryEntry)
+    {
+        var userPrincipal = UserPrincipal.FindByIdentity(principalContext, IdentityType.SamAccountName, directoryEntry.Properties["samAccountName"].Value?.ToString() ?? string.Empty);
+        if (userPrincipal is null)
+        {
+            Logger.LogWarning("Cannot find group by 'samAccountName', trying with objectGUID...");
+
+            userPrincipal = UserPrincipal.FindByIdentity(principalContext, IdentityType.Guid, directoryEntry.Properties["objectGUID"].Value?.ToString() ?? string.Empty);
+        }
+
+        return ValueTask.FromResult<UserPrincipal?>(userPrincipal);
     }
 
     private ValueTask<GroupPrincipal?> GetGroupPrincipalAsync(PrincipalContext principalContext, DirectoryEntry directoryEntry)
