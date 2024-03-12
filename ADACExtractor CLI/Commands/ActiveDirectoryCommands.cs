@@ -5,8 +5,8 @@ using System.Runtime.Versioning;
 
 namespace ADACExtractor.CLI.Commands;
 
-[HasSubCommands(typeof(ActiveDirectoryShowCommands), "show")]
 [SupportedOSPlatform("windows")]
+[HasSubCommands(typeof(ActiveDirectoryShowCommands), "show")]
 public class ActiveDirectoryCommands(ILogger<ActiveDirectoryCommands> logger) : ActiveDirectoryCommandBase<ActiveDirectoryCommands>(logger)
 {
     [PrimaryCommand, Command("inspect")]
