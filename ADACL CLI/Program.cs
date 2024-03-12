@@ -8,8 +8,7 @@ if (args.Length == 0)
 {
     args = new string[]
     {
-        "active-directory",
-        "inspect"
+        "active-directory"
     };
 }
 #endif
