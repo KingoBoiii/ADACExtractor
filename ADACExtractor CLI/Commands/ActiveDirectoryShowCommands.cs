@@ -5,14 +5,15 @@ using System.DirectoryServices.AccountManagement;
 
 namespace ADACExtractor.CLI.Commands;
 
-public class ActiveDirectoryShowCommands(ILogger<ActiveDirectoryShowCommands> logger) : ActiveDirectoryCommandBase<ActiveDirectoryShowCommands>(logger)
+public class ActiveDirectoryShowCommands(ILogger<ActiveDirectoryShowCommands> logger, IDomainService domainService) : CommandBase<ActiveDirectoryShowCommands>(logger)
 {
     [Command("users")]
     public async ValueTask ShowUsersAsync()
     {
-        if (!TryGetComputerDomain(out var computerDomain, out var errorMessage))
+        var computerDomain = await domainService.GetComputerDomainAsync().ConfigureAwait(false);
+        if (computerDomain is null)
         {
-            Logger.LogError("No domain found: {}", errorMessage);
+            Logger.LogError("No domain found");
 
             return;
         }
@@ -51,9 +52,10 @@ public class ActiveDirectoryShowCommands(ILogger<ActiveDirectoryShowCommands> lo
     [Command("groups")]
     public async ValueTask ShowGroupsAsync()
     {
-        if (!TryGetComputerDomain(out var computerDomain, out var errorMessage))
+        var computerDomain = await domainService.GetComputerDomainAsync().ConfigureAwait(false);
+        if (computerDomain is null)
         {
-            Logger.LogError("No domain found: {}", errorMessage);
+            Logger.LogError("No domain found");
 
             return;
         }

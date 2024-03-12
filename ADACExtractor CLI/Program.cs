@@ -1,4 +1,5 @@
 ﻿using ADACExtractor.CLI.Commands;
+using ADACExtractor.Extensions.DependencyInjection;
 using Cocona;
 using Microsoft.Extensions.Logging;
 
@@ -19,6 +20,8 @@ var builder = CoconaApp.CreateBuilder(args, c =>
 });
 
 builder.Logging.AddDebug();
+
+builder.Services.AddWindowsActiveDirectory();
 
 var app = builder.Build();
 

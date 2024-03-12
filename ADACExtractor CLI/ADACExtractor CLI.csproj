@@ -18,4 +18,8 @@
 		<PackageReference Include="System.DirectoryServices.AccountManagement" Version="8.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\ADACExtractor.ActiveDirectory\ADACExtractor.ActiveDirectory.csproj" />
+	</ItemGroup>
+
 </Project>

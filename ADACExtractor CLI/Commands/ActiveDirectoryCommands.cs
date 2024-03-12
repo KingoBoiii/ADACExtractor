@@ -1,42 +1,29 @@
 ﻿using Cocona;
 using Microsoft.Extensions.Logging;
-using System.DirectoryServices.ActiveDirectory;
 using System.Runtime.Versioning;
 
 namespace ADACExtractor.CLI.Commands;
 
 [SupportedOSPlatform("windows")]
 [HasSubCommands(typeof(ActiveDirectoryShowCommands), "show")]
-public class ActiveDirectoryCommands(ILogger<ActiveDirectoryCommands> logger) : ActiveDirectoryCommandBase<ActiveDirectoryCommands>(logger)
+public class ActiveDirectoryCommands(ILogger<ActiveDirectoryCommands> logger, IDomainService domainService, IDomainControllerService domainControllerService) : CommandBase<ActiveDirectoryCommands>(logger)
 {
     [PrimaryCommand, Command("inspect")]
     public async ValueTask InspectAsync()
     {
-        if (!TryGetComputerDomain(out var computerDomain, out var errorMessage))
+        var computerDomain = await domainService.GetComputerDomainAsync().ConfigureAwait(false);
+        if (computerDomain is null)
         {
-            Logger.LogError("No domain found: {}", errorMessage);
+            Logger.LogError("No domain found");
 
             return;
         }
 
         Logger.LogInformation("Domain found: {}", computerDomain.Name);
 
-        await InspectDomainControllersAsync(computerDomain).ConfigureAwait(false);
-    }
+        var domainControllers = await domainControllerService.GetDomainControllersAsync(computerDomain).ConfigureAwait(false);
 
-    private ValueTask InspectDomainControllersAsync(Domain? domain)
-    {
-        ArgumentNullException.ThrowIfNull(domain);
-
-        var domainControllers = domain.DomainControllers;
-        if (domainControllers.Count == 0)
-        {
-            Logger.LogError("Cannot find Domain Controller for {}", domain.Name);
-
-            return ValueTask.CompletedTask;
-        }
-
-        foreach (DomainController? domainController in domainControllers)
+        foreach (var domainController in domainControllers)
         {
             if (domainController is null)
             {
@@ -49,7 +36,5 @@ public class ActiveDirectoryCommands(ILogger<ActiveDirectoryCommands> logger) : 
     IP Address: {}
     OS Version: {}", domainController.Name, domainController.Name, domainController.IPAddress, domainController.SiteName, domainController.OSVersion);
         }
-
-        return ValueTask.CompletedTask;
     }
 }
