@@ -38,14 +38,14 @@ internal sealed class ActiveDirectoryService(ILogger<ActiveDirectoryService> log
         var sb = new StringBuilder();
         sb.AppendLine();
         sb.AppendLine(new string('=', LENGTH));
-        sb.AppendLine($"Domain:         {domainContainer?.Domain?.Name}");
+        sb.AppendLine($"Domain:             {domainContainer?.Domain?.Name}");
         sb.AppendLine("Controllers:");
         foreach (var domainController in domainControllerContainer.DomainControllers)
         {
-            sb.AppendLine($"    -           {domainController.Name}");
-            sb.AppendLine($"                {domainController.SiteName}");
-            sb.AppendLine($"                {domainController.IPAddress}");
-            sb.AppendLine($"                {domainController.OSVersion}");
+            sb.AppendLine($"    -               {domainController.Name}");
+            sb.AppendLine($"                    {domainController.SiteName}");
+            sb.AppendLine($"                    {domainController.IPAddress}");
+            sb.AppendLine($"                    {domainController.OSVersion}");
         }
         sb.AppendLine(new string('=', LENGTH));
 

@@ -13,6 +13,7 @@ public static class ServiceCollectionExtensions
             services.AddActiveDirectoryServices();
         }
 
+        services.AddScoped<ISystemInfoService, SystemInfoService>();
         services.AddScoped<IActiveDirectoryService, ActiveDirectoryService>();
 
         return services;
