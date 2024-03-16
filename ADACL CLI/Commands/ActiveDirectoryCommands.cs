@@ -6,12 +6,13 @@ using System.Runtime.Versioning;
 namespace ADACL.CLI.Commands;
 
 [SupportedOSPlatform("windows")]
-[HasSubCommands(typeof(ActiveDirectoryShowCommands), "show")]
-public class ActiveDirectoryCommands(ILogger<ActiveDirectoryCommands> logger, IActiveDirectoryService activeDirectoryService) : CommandBase<ActiveDirectoryCommands>(logger)
+public class ActiveDirectoryCommands(ILogger<ActiveDirectoryCommands> logger, ISystemInfoService systemInfoService, IActiveDirectoryService activeDirectoryService) : CommandBase<ActiveDirectoryCommands>(logger)
 {
     [PrimaryCommand, Command("inspect")]
     public async ValueTask InspectAsync()
     {
+        await systemInfoService.PrintSystemInfoAsync().ConfigureAwait(false);
+
         await activeDirectoryService.PrintActiveDirectoryInfoAsync().ConfigureAwait(false);
     }
 }

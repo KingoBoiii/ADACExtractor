@@ -26,7 +26,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\ADACL.ActiveDirectory\ADACL.ActiveDirectory.csproj" />
 	  <ProjectReference Include="..\ADACL.CLI\ADACL.CLI.csproj" />
 	</ItemGroup>
 

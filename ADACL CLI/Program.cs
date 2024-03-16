@@ -24,7 +24,6 @@ builder.Logging.AddSimpleConsole(c =>
     c.UseUtcTimestamp = true;
 });
 
-//builder.Services.AddWindowsActiveDirectory();
 builder.Services.AddADACL();
 
 var app = builder.Build();
@@ -33,8 +32,5 @@ app.AddSubCommand("active-directory", config =>
 {
     config.AddCommands<ActiveDirectoryCommands>();
 });
-
-//app.AddCommands<SystemInformationCommands>();
-//app.AddCommands<MyCommands>();
 
 app.Run();
