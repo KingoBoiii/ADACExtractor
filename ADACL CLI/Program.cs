@@ -1,5 +1,5 @@
-﻿using ADACL.Extensions.DependencyInjection;
-using ADACL.CLI.Commands;
+﻿using ADACL.CLI.Commands;
+using ADACL.Extensions.DependencyInjection;
 using Cocona;
 using Microsoft.Extensions.Logging;
 
