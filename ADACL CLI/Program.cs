@@ -18,7 +18,11 @@ var builder = CoconaApp.CreateBuilder(args, c =>
     c.TreatPublicMethodsAsCommands = false;
 });
 
-builder.Logging.AddDebug();
+builder.Logging.AddSimpleConsole(c =>
+{
+    c.TimestampFormat = "HH:mm:ss ";
+    c.UseUtcTimestamp = true;
+});
 
 //builder.Services.AddWindowsActiveDirectory();
 builder.Services.AddADACL();
