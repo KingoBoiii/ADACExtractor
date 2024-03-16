@@ -2,10 +2,7 @@
 
 namespace System.DirectoryServices;
 
-public interface IDomainContainer
+public interface IDomainContainer : IDirectoryServiceContainer
 {
     DomainInfo? Domain { get; }
-
-    string? ErrorMessage { get; }
-    bool IsValid { get; }
 }

@@ -11,6 +11,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddActiveDirectoryServices(this IServiceCollection services)
     {
         services.AddScoped<IDomainProvider, WindowsDomainProvider>();
+        services.AddScoped<IDomainControllerProvider, WindowsDomainControllerProvider>();
 
         return services;
     }
