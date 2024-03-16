@@ -17,11 +17,11 @@ internal class WindowsDomainProvider : IDomainProvider
                 Name = computerDomain.Name
             };
 
-            return ValueTask.FromResult<IDomainContainer>(ActiveDirectoryDomainContainer.Success(domainInfo));
+            return ValueTask.FromResult(ActiveDirectoryDomainContainer.Success(domainInfo));
         }
         catch (Exception ex)
         {
-            return ValueTask.FromResult<IDomainContainer>(ActiveDirectoryDomainContainer.Error(ex.Message));
+            return ValueTask.FromResult(ActiveDirectoryDomainContainer.Error(ex.Message));
         }
     }
 }
