@@ -9,11 +9,12 @@
 		<PublishSingleFile>true</PublishSingleFile>
 		<SelfContained>true</SelfContained>
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
-		<AssemblyName>ADACL-$(RuntimeIdentifier)</AssemblyName>
+		<AssemblyName>ADACL</AssemblyName>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<AssemblyName>ADACL-$(RuntimeIdentifier)</AssemblyName>
 		<DebugSymbols>False</DebugSymbols>
 		<DebugType>None</DebugType>
 	</PropertyGroup>
@@ -26,6 +27,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\ADACL.ActiveDirectory\ADACL.ActiveDirectory.csproj" />
+	  <ProjectReference Include="..\ADACL.CLI\ADACL.CLI.csproj" />
 	</ItemGroup>
 
 </Project>

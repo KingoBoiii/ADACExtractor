@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADACL.Extensions.System.Dir
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADACL.Extensions.System.DirectoryServices.Abstractions", "ADACL.Extensions.System.DirectoryServices.Abstractions\ADACL.Extensions.System.DirectoryServices.Abstractions.csproj", "{2B1C5E83-4005-4B52-96B5-6DD5F8DA3CD8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADACL.CLI", "ADACL.CLI\ADACL.CLI.csproj", "{C4C2A240-20C0-4834-B5D6-0A1EDD42E024}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{2B1C5E83-4005-4B52-96B5-6DD5F8DA3CD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B1C5E83-4005-4B52-96B5-6DD5F8DA3CD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B1C5E83-4005-4B52-96B5-6DD5F8DA3CD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4C2A240-20C0-4834-B5D6-0A1EDD42E024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4C2A240-20C0-4834-B5D6-0A1EDD42E024}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4C2A240-20C0-4834-B5D6-0A1EDD42E024}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4C2A240-20C0-4834-B5D6-0A1EDD42E024}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

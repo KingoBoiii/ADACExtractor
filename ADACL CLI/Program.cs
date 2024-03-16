@@ -20,7 +20,8 @@ var builder = CoconaApp.CreateBuilder(args, c =>
 
 builder.Logging.AddDebug();
 
-builder.Services.AddWindowsActiveDirectory();
+//builder.Services.AddWindowsActiveDirectory();
+builder.Services.AddADACL();
 
 var app = builder.Build();
 
@@ -29,7 +30,7 @@ app.AddSubCommand("active-directory", config =>
     config.AddCommands<ActiveDirectoryCommands>();
 });
 
-app.AddCommands<SystemInformationCommands>();
-app.AddCommands<MyCommands>();
+//app.AddCommands<SystemInformationCommands>();
+//app.AddCommands<MyCommands>();
 
 app.Run();
