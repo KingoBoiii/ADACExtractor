@@ -1,24 +1,26 @@
 ﻿using ADACL.ActiveDirectory.Models.Mappers;
 using ADACL.Models;
+using Microsoft.Extensions.Logging;
+using System.DirectoryServices;
 using System.Runtime.Versioning;
 
 namespace ADACL.ActiveDirectory;
 
 [SupportedOSPlatform("windows")]
-public class WindowsDomainService : IDomainService
+public class WindowsDomainService(ILogger<WindowsDomainService> logger, IDomainProvider domainProvider, IDomainMapper domainMapper) : IDomainService
 {
-    public WindowsDomainService(IDomainMapper domainMapper)
-    {
-        DomainMapper = domainMapper;
-    }
-
-    private IDomainMapper DomainMapper { get; }
-
     public async ValueTask<Domain?> GetComputerDomainAsync()
     {
+        var domainContainer = await domainProvider.GetDomainAsync();
+        if (!domainContainer.IsValid)
+        {
+            logger.LogError(message: domainContainer.ErrorMessage);
+            return default;
+        }
+
         if (TryGetComputerDomain(out var computerDomain, out var errorMessage))
         {
-            return await DomainMapper.MapAsync(computerDomain).ConfigureAwait(false);
+            return await domainMapper.MapAsync(computerDomain).ConfigureAwait(false);
         }
 
         return default;

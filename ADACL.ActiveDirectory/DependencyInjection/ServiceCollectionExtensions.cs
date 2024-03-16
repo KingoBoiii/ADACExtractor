@@ -10,6 +10,8 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddWindowsActiveDirectory(this IServiceCollection services)
     {
+        services.AddActiveDirectoryServices();
+
         services.AddSingleton<IDomainMapper, WindowsDomainMapper>();
         services.AddSingleton<IDomainControllerMapper, WindowsDomainControllerMapper>();
 

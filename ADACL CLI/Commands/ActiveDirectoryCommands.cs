@@ -14,8 +14,6 @@ public class ActiveDirectoryCommands(ILogger<ActiveDirectoryCommands> logger, ID
         var computerDomain = await domainService.GetComputerDomainAsync().ConfigureAwait(false);
         if (computerDomain is null)
         {
-            Logger.LogError("No domain found");
-
             return;
         }
 
