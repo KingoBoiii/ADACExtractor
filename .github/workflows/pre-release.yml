@@ -39,7 +39,7 @@ jobs:
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.TOKEN }}"
-        automatic_release_tag: "devbuild"
+        automatic_release_tag: "pre-release"
         prerelease: true
-        title: "Development Build"
+        title: "Pre-release"
         files: "/home/runner/work/ADACL/ADACL/release/"
